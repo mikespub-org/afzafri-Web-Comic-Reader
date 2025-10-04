@@ -1,6 +1,6 @@
 {
     "name": "@mikespub/web-comic-reader",
-    "version": "2025.10.04",
+    "version": "2025.10.05",
     "repository": "https://github.com/mikespub-org/afzafri-Web-Comic-Reader",
     "description": "Web Based cbr/cbz/cbt comic book reader. Written in HTML5 and Javascript",
     "bugs": {
