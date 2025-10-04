@@ -78,6 +78,45 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // ----- OPEN COMIC FROM URL PARAM ON SAME SERVER -----
+    document.addEventListener("readystatechange", () => {
+        if (document.readyState !== "complete") {
+            return;
+        }
+        const params = new URLSearchParams(document.location.search);
+        const link = params.get("url");
+        if (link === null || link === "") {
+            return;
+        }
+        const url = new URL(link, document.URL);
+        if (url.host !== document.location.host) {
+            return;
+        }
+        // get the comic file name
+        const parts = url.pathname.split("/");
+        const comictitle = parts.pop();
+
+        // disable loading other comic while loading
+        toggleReadNow();
+
+        fetch(url.toString())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok " + response.statusText);
+                }
+                return response.blob();
+            })
+            .then(blob => {
+                const file = new File([blob], comictitle);
+                // open the comic
+                openComic(file);
+            })
+            .catch(error => {
+                console.error("There was a problem with the fetch operation:", error);
+                toggleReadNow(false); // re-enable the button if there is an error
+            });
+    });
+
     function toggleReadNow(disable = true) {
         readNowButtons.forEach(button => {
             button.disabled = disable;
