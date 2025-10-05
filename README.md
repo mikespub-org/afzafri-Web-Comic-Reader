@@ -4,7 +4,11 @@ Demo: https://afzafri.github.io/Web-Comic-Reader/
 
 # About this fork
 
-This fork is used to allow opening a comic book via ?url=... parameter (relative or absolute on current server) and create an NPM package.
+This fork is used to allow opening a comic book via ?url=... parameter (relative or absolute on same server), and create packages for use in other projects.
+
+The [assets/ files](assets/) are available as:
+* PHP composer package: [mikespub/web-comic-reader](https://packagist.org/packages/mikespub/web-comic-reader), or
+* NPM javascript package: [@mikespub/web-comic-reader](https://www.npmjs.com/package/@mikespub/web-comic-reader).
 
 # Screenshots
 <img src="https://cloud.githubusercontent.com/assets/14824387/25302185/e8353cee-276a-11e7-9e78-d58eac26b16f.png" width="500px"/><br>

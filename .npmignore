@@ -1,3 +1,5 @@
 .gitattributes
 .gitremotes
 comics/
+composer.lock
+vendor/
