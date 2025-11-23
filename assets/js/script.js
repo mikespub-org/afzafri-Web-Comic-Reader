@@ -325,7 +325,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const comictitle = parts.pop();
 
         // disable loading other comic while loading
-        //toggleReadNow();
+        showQuickReadMode();
+        quickReadViewEl.style.display = 'none';
 
         fetch(url.toString())
             .then(response => {
